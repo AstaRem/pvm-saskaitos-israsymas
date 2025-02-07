@@ -1,0 +1,112 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVM saskaita faktūra</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="index.js" defer ></script>
+</head>
+<body>
+    <div class="top-container">
+        <div class="page-wrapper">
+            <header>
+                <h1>PVM sąskaita faktūra </h1>
+                <h2>Nr...</h2>
+                <p>Išrašymo data: </p>
+                <p>Mokėjimo terminas:</p>
+            </header>
+
+            <div class="seller-buyer"> 
+                <div class="seller"> 
+                    <p>Pavadinimas:</p>
+                    <p>Adresas</p>
+                    <p>Įmonės kodas</p>
+                    <p>PVM reg.kodas</p>
+                    <p>Tel</p>
+                    <p>E-mail</p>
+                </div>
+
+                <div class="buyer"> 
+                    <p>Pavadinimas:</p>
+                    <p>Adresas</p>
+                    <p>Įmonės kodas</p>
+                    <p>PVM reg.kodas</p>
+                    <p>Tel</p>
+                    <p>E-mail</p>
+                </div>
+            </div>
+
+            <div class="table-header">
+                <div>Prekės pavadinimas</div>
+                <div>Kiekis</div>
+                <div>Kaina be PVM</div>
+                <div>Suma be PVM</div>
+                <div>Nuolaida %</div>
+                <div>Nuolaidos kaina</div>
+                <div>Suma</div>
+                <div>Valiuta</div>
+            </div>
+
+            <div class="table-row">
+                <!-- dynamic content - using template -->
+            </div>
+
+            <div class="total">
+            <!-- dynamic content - using template -->
+            </div>
+
+
+            <template data-row-template>
+                <div data-description>Prekės pavadinimas</div>
+                <div data-quantity>Kiekis</div>
+                <div data-price-withoutVAT>Kaina be PVM</div>
+                <div data-sum-withVAT >Suma be PVM</div>
+                <div data-discount-type>Nuolaida %</div>
+                <div data-discount-amount>Nuolaidos kaina</div>
+                <div data-sum-after>Suma</div>
+                <div data-currency>Valiuta</div>
+            </template>
+
+            <template data-total>
+                <div>
+                    <p>Pardavimo suma</p>
+                    <p data-sum-all></p>
+                </div>
+
+                <div>
+                    <p>PVM 21%</p>
+                    <p data-VAT></p>
+                </div>
+
+                <div>
+                    <p>Iš viso</p>
+                    <p data-total-final></p>
+                </div>
+            </template>
+
+
+            <div class="signature-date">
+                <div class="buyer-signature">
+                    <div>Gavėjas:</div>
+                    <div class="line">____</div>    
+                </div>
+
+                <div class="received-date">
+                    <div>Data:</div>
+                    <div class="line">_____</div>    
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

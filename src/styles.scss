@@ -1,0 +1,62 @@
+
+
+body {
+    margin: 0; 
+    padding: 0;
+    font-family: "Roboto", serif;
+    box-sizing: border-box;
+ }
+
+ .top-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(190, 186, 186);
+    height: 100vh;
+    padding: 0; 
+    margin: 0;
+ }
+
+
+ .page-wrapper {
+    position: relative;
+    top: 20px;
+    max-width: 800px;
+    width: 800px;
+    border: 1px solid black;
+    background-color: white;
+    height: 80vh;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     }
+
+     .seller-buyer {
+        display: flex;
+        justify-content: space-between;
+
+        .seller, .buyer {
+            width: 50%;
+            padding: 10px;
+        }
+    }
+    .table-header {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .signature-date {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        .buyer-signature, .received-date{
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 50px;
+        }
+    }
+
+ }
+
