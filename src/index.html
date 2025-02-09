@@ -18,49 +18,54 @@
     <div class="top-container">
         <div class="page-wrapper">
             <header>
-                <h1>PVM sąskaita faktūra </h1>
-                <h2>Nr...</h2>
-                <p>Išrašymo data: </p>
-                <p>Mokėjimo terminas:</p>
+                <h1 >PVM sąskaita-faktūra </h1>
+                <h2 data-num>Nr.&nbsp;</h2>
+                <p data-date>Išrašymo data:&nbsp; </p>
+                <p data-due-date>Mokėjimo terminas:&nbsp;</p>
             </header>
 
             <div class="seller-buyer"> 
                 <div class="seller"> 
-                    <p>Pavadinimas:</p>
-                    <p>Adresas</p>
-                    <p>Įmonės kodas</p>
-                    <p>PVM reg.kodas</p>
-                    <p>Tel</p>
-                    <p>E-mail</p>
+                    <h3>Pardavejas</h3>
+                    <p data-seller-name>Pavadinimas:&nbsp;</p>
+                    <p data-seller-address>Adresas:&nbsp;</p>
+                    <p data-seller-code>Įmonės kodas:&nbsp;</p>
+                    <p data-seller-VAT>PVM reg.kodas:&nbsp;</p>
+                    <p data-seller-phone>Tel:&nbsp;</p>
+                    <p data-seller-email>E-mail:&nbsp;</p>
                 </div>
 
                 <div class="buyer"> 
-                    <p>Pavadinimas:</p>
-                    <p>Adresas</p>
-                    <p>Įmonės kodas</p>
-                    <p>PVM reg.kodas</p>
-                    <p>Tel</p>
-                    <p>E-mail</p>
+                    <h3>Pirkejas</h3>
+                    <p data-buyer-name>Pavadinimas:&nbsp;</p>
+                    <p data-buyer-address>Adresas:&nbsp;</p>
+                    <p data-buyer-code>Įmonės kodas:&nbsp;</p>
+                    <p data-buyer-VAT>PVM reg.kodas:&nbsp;</p>
+                    <p data-buyer-phone>Tel:&nbsp;</p>
+                    <p data-buyer-email>E-mail:&nbsp;</p>
                 </div>
             </div>
 
-            <div class="table-header">
-                <div>Prekės pavadinimas</div>
-                <div>Kiekis</div>
-                <div>Kaina be PVM</div>
-                <div>Suma be PVM</div>
-                <div>Nuolaida %</div>
-                <div>Nuolaidos kaina</div>
-                <div>Suma</div>
-                <div>Valiuta</div>
-            </div>
-
-            <div class="table-row">
+            <div class="table">
+                <div class="table-header">
+                    <div>Prekės pavadinimas</div>
+                    <div>Kiekis</div>
+                    <div>Kaina be PVM</div>
+                    <div>Suma be PVM</div>
+                    <div>Nuolaida %</div>
+                    <div>Nuolaidos kaina</div>
+                    <div>Suma</div>
+                    <div>Valiuta</div>
+                </div>
+    
+                <div class="table-row">
+                    <!-- dynamic content - using template -->
+                </div>
+    
+                <div class="total">
                 <!-- dynamic content - using template -->
-            </div>
-
-            <div class="total">
-            <!-- dynamic content - using template -->
+                </div>
+    
             </div>
 
 
