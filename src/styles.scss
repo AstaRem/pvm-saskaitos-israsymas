@@ -1,4 +1,7 @@
-
+*{
+    padding: 0;
+    margin: 0;
+}
 
 body {
     margin: 0; 
@@ -11,15 +14,14 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgb(190, 186, 186);
-    // height: 100vh;
     padding: 0; 
     margin: 0;
  }
 
 
  .page-wrapper {
-    position: relative;
-    top: 20px;
+    // position: relative;
+    // top: 20px;
     max-width: 800px;
     width: 800px;
     border: 1px solid black;
@@ -31,11 +33,13 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 20px;
      }
 
      .seller-buyer {
         display: flex;
         justify-content: space-between;
+    
 
         .seller, .buyer {
             width: 50%;
@@ -46,13 +50,19 @@ body {
     .table {
         padding: 10px;
 
+        .table-header {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
         .table-header, .table-row {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: 200px 80px 85px 85px 85px 85px 85px 75px;
+        
             & div {
-                border: 1px solid black;
+                border: 1px solid rgb(71, 71, 71);
                 text-align: center;
-
+                
             }
         }
     
@@ -67,9 +77,33 @@ body {
             display: flex;
             justify-content: flex-start;
             margin-top:20px;
+            .line{
+                width: 100%;
+                border-bottom: 1px solid;
+            }
         }
     }
     
 
  }
 
+
+ .total {
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    div {
+        display: flex;
+        justify-content: space-between;
+        .totals {
+            font-weight: 600;
+        }
+    }
+ }
+
+ @media print{
+    .page-wrapper {
+        background-color: transparent;
+    }
+ }

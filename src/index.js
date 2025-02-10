@@ -200,9 +200,9 @@ getData().then(result => {
         const VAT = document.querySelector('[data-VAT]');
         const totalFinal = document.querySelector('[data-total-final]');
 
-        totalWithoutVAT.innerText = sumResult.toFixed(2);
-        VAT.innerText = VATcalc().toFixed(2);
-        totalFinal.innerText = totalCalc().toFixed(2);
+        totalWithoutVAT.innerText = `${sumResult.toFixed(2)} ${currencySymbol}`;
+        VAT.innerText = `${VATcalc().toFixed(2)} ${currencySymbol}`;
+        totalFinal.innerText = `${totalCalc().toFixed(2)} ${currencySymbol}`;
 
 })
 
