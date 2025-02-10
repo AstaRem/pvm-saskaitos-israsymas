@@ -1,6 +1,7 @@
 const URL = 'https://in3.dev/inv/';
+let items = [];
+const currencySymbol = 'EUR';
 
-// let invoiceData = null;
 
 const getData = () => {
     return fetch(URL)
@@ -38,8 +39,6 @@ getData().then(result => {
     const dueSpan = document.createElement('span');
     dueSpan.textContent = result.due_date;
     dueDate.appendChild(dueSpan);
-
-
 
 
     //seller details
@@ -106,6 +105,72 @@ getData().then(result => {
     bEmailSpan.textContent = result.company.buyer.email;
     buyerEmail.appendChild(bEmailSpan);
 
+    //items
+    items = result.items;
+    console.log(items);
+    //sukurti node
 
 
+
+    items.forEach(item => {
+        const itemRow = document.querySelector('[data-table-row]');
+        const itemRowTemplate = document.querySelector('[data-row-template]');
+        const div = itemRowTemplate.content.cloneNode(true);
+
+        let discountDescription = () => {
+            if(item.discount.type == 'fixed'){
+                return `fiksuota`
+                // return item.discount.value;
+            }else if( item.discount.type == 'percentage'){
+                return `${item.discount.value} %`; 
+            }else {
+                return 0;
+            }
+        }
+
+        let discountCalc = () => {
+            if(item.discount.type == 'fixed'){
+                return item.discount.value;
+            }else if( item.discount.type == 'percentage'){
+                let calculatePercent = (item.quantity * item.price) * (item.discount.value/100)
+                return calculatePercent.toFixed(2); 
+            }else {
+                return 0;
+            }
+
+        }
+
+        let beforeVATcalc = () => {
+            return (item.quantity * item.price).toFixed(2);
+        }
+
+        let sumAfterDiscount = () => {
+            let sumAfter = beforeVATcalc() - discountCalc();
+            return sumAfter.toFixed(2);
+        }
+    
+        const description = div.querySelector('[data-description]');
+        const quantity = div.querySelector('[data-quantity]');
+        const priceWithoutVAT = div.querySelector('[data-price-WithoutVAT]');
+        const sumWithoutVAT = div.querySelector('[data-sum-WithoutVAT]');
+        const discountType = div.querySelector('[data-discount-type]');
+        const discountAmount = div.querySelector('[data-discount-amount]');
+        const sumAfter = div.querySelector('[data-sum-after]');
+        const currency = div.querySelector('[data-currency]');
+    
+        description.innerText = item.description;
+        quantity.innerText = item.quantity;
+        priceWithoutVAT.innerText = item.price;
+        sumWithoutVAT.innerText = beforeVATcalc()
+        discountType.innerText = discountDescription();
+        discountAmount.innerText = discountCalc();
+        sumAfter.innerText = sumAfterDiscount();
+        currency.innerText = currencySymbol;
+        console.log(div)
+        
+    
+        itemRow.appendChild(div);
+
+
+    })
 })

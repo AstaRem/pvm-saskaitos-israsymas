@@ -52,50 +52,45 @@
                     <div>Kiekis</div>
                     <div>Kaina be PVM</div>
                     <div>Suma be PVM</div>
-                    <div>Nuolaida %</div>
+                    <div>Nuolaida </div>
                     <div>Nuolaidos kaina</div>
-                    <div>Suma</div>
+                    <div>Suma po nuolaidos</div>
                     <div>Valiuta</div>
                 </div>
     
-                <div class="table-row">
-                    <!-- dynamic content - using template -->
+                <div class="table-row" data-table-row >
+                    <!-- dynamic content here -->
                 </div>
+
+                <div class="total" data-total>
+                    <div>
+                        <p>Pardavimo suma</p>
+                        <p data-sum-all></p>
+                    </div>
     
-                <div class="total">
-                <!-- dynamic content - using template -->
-                </div>
+                    <div>
+                        <p>PVM 21%</p>
+                        <p data-VAT></p>
+                    </div>
     
-            </div>
-
-
-            <template data-row-template>
-                <div data-description>Prekės pavadinimas</div>
-                <div data-quantity>Kiekis</div>
-                <div data-price-withoutVAT>Kaina be PVM</div>
-                <div data-sum-withVAT >Suma be PVM</div>
-                <div data-discount-type>Nuolaida %</div>
-                <div data-discount-amount>Nuolaidos kaina</div>
-                <div data-sum-after>Suma</div>
-                <div data-currency>Valiuta</div>
-            </template>
-
-            <template data-total>
-                <div>
-                    <p>Pardavimo suma</p>
-                    <p data-sum-all></p>
+                    <div>
+                        <p>Iš viso</p>
+                        <p data-total-final></p>
+                    </div>
+                    </div>
                 </div>
 
-                <div>
-                    <p>PVM 21%</p>
-                    <p data-VAT></p>
-                </div>
+                <template data-row-template>
+                    <div data-description>Prekės pavadinimas</div>
+                    <div data-quantity>Kiekis</div>
+                    <div data-price-withoutVAT>Kaina be PVM</div>
+                    <div data-sum-withoutVAT >Suma be PVM</div>
+                    <div data-discount-type>Nuolaida</div>
+                    <div data-discount-amount>Nuolaidos kaina</div>
+                    <div data-sum-after>Suma</div>
+                    <div data-currency>Valiuta</div>
 
-                <div>
-                    <p>Iš viso</p>
-                    <p data-total-final></p>
-                </div>
-            </template>
+                </template>
 
 
             <div class="signature-date">
