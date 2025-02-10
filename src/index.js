@@ -1,6 +1,10 @@
 const URL = 'https://in3.dev/inv/';
 let items = [];
 const currencySymbol = 'EUR';
+let totalFinalSum = 0;
+let totalSumArray  = [];
+let sumResult = 0;
+const VATnum = 0.21;
 
 
 const getData = () => {
@@ -146,8 +150,18 @@ getData().then(result => {
 
         let sumAfterDiscount = () => {
             let sumAfter = beforeVATcalc() - discountCalc();
+            console.log(sumAfter);
+            totalSumArray.push(sumAfter);
+            console.log(totalSumArray);
+    
             return sumAfter.toFixed(2);
         }
+
+        console.log(`after push:${totalSumArray}`);
+
+        // totalSumArray.push(sumAfter);
+        // console.log(totalSumArray);
+
     
         const description = div.querySelector('[data-description]');
         const quantity = div.querySelector('[data-quantity]');
@@ -166,11 +180,29 @@ getData().then(result => {
         discountAmount.innerText = discountCalc();
         sumAfter.innerText = sumAfterDiscount();
         currency.innerText = currencySymbol;
-        console.log(div)
         
-    
         itemRow.appendChild(div);
 
+        sumResult = totalSumArray.reduce((a, b) => a + b, 0);
+        console.log(`sumeResult: ${sumResult}`);
+        return sumResult;
+        
 
     })
+
+    console.log(`sumeResult outside: ${sumResult}`);
+
+    let VATcalc = () => sumResult * VATnum;
+    let totalCalc = () => sumResult + VATcalc();
+ 
+        //total
+        const totalWithoutVAT = document.querySelector('[data-sum-all]');
+        const VAT = document.querySelector('[data-VAT]');
+        const totalFinal = document.querySelector('[data-total-final]');
+
+        totalWithoutVAT.innerText = sumResult.toFixed(2);
+        VAT.innerText = VATcalc().toFixed(2);
+        totalFinal.innerText = totalCalc().toFixed(2);
+
 })
+
